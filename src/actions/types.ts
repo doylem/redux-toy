@@ -26,3 +26,7 @@ export type Action =
   | IncrementByAction
 
 export type Dispatch = ThunkDispatch<State, void, Action>
+
+export type CounterState = {
+  value: number
+}

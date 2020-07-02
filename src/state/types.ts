@@ -1,4 +1,4 @@
-import { CounterState } from "./counterReducer"
+import { CounterState } from "../actions/types"
 
 export type State = {
   counter: CounterState

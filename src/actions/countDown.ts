@@ -7,7 +7,7 @@ function timeout(ms: number) {
 
 export default function countDown() {
   return async (dispatch: Dispatch, getState: () => State) => {
-    while (getState().counter > 0) {
+    while (getState().counter.value > 0) {
       dispatch({ type: "DECREMENT" })
       await timeout(1000)
     }
