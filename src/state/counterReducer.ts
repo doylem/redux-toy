@@ -1,64 +1,30 @@
-import { Reducer } from "redux"
-import {
-  CounterState,
-  Action,
-  IncrementAction,
-  IncrementByAction,
-  DecrementAction,
-  DecrementByAction,
-  INCREMENT,
-  DECREMENT,
-  INCREMENT_BY,
-  DECREMENT_BY
-} from "../actions/types"
+/* eslint-disable no-unused-expressions */
 
-export const initialState = {
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { CounterState, Payload } from "../actions/types"
+
+export const initialState: CounterState = {
   value: 1
 }
 
-const counterReducer: Reducer<CounterState, Action> = (state = initialState, action) => {
-  switch (action.type) {
-    case "DECREMENT":
-      return {
-        ...state,
-        value: state.value - 1
-      }
-    case "DECREMENT_BY":
-      return {
-        ...state,
-        value: state.value - action.by
-      }
-    case "INCREMENT":
-      return {
-        ...state,
-        value: state.value + 1
-      }
-    case "INCREMENT_BY":
-      return {
-        ...state,
-        value: state.value + action.by
-      }
-    default:
-      return state
-  }
-}
-
-export const increment = (): IncrementAction => ({
-  type: INCREMENT,
+const slice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    decrement: (state) => {
+      state.value -= 1
+    },
+    decrementBy: (state, action: PayloadAction<Payload>) => {
+      state.value - action.payload.by
+    },
+    increment: (state) => {
+      state.value += 1
+    },
+    incrementBy: (state, action: PayloadAction<Payload>) => {
+      state.value + action.payload.by
+    },
+  },
 })
 
-export const incrementBy = (by: number): IncrementByAction => ({
-  type: INCREMENT_BY,
-  by,
-})
-
-export const decrement = (): DecrementAction => ({
-  type: DECREMENT,
-})
-
-export const decrementBy = (by: number): DecrementByAction => ({
-  type: DECREMENT_BY,
-  by,
-})
-
-export default counterReducer
+export const { decrement, decrementBy, increment, incrementBy} = slice.actions
+export default slice.reducer
