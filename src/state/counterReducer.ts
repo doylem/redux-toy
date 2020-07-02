@@ -1,15 +1,11 @@
 /* eslint-disable no-unused-expressions */
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { CounterState, Payload } from "../actions/types"
-
-export const initialState: CounterState = {
-  value: 1
-}
+import { Payload } from "../actions/types"
 
 const slice = createSlice({
   name: 'counter',
-  initialState,
+  initialState: { value: 1 },
   reducers: {
     decrement: (state) => {
       state.value -= 1
