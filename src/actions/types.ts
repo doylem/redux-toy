@@ -1,21 +1,26 @@
 import { ThunkDispatch } from "redux-thunk"
 import { State } from "../state/types"
 
+export const INCREMENT = "INCREMENT"
+export const DECREMENT = "DECREMENT"
+export const INCREMENT_BY = "INCREMENT_BY"
+export const DECREMENT_BY = "DECREMENT_BY"
+
 export interface DecrementAction {
-  type: "DECREMENT"
+  type: typeof DECREMENT
 }
 
 export interface DecrementByAction {
-  type: "DECREMENT_BY"
+  type: typeof DECREMENT_BY
   by: number
 }
 
 export interface IncrementAction {
-  type: "INCREMENT"
+  type: typeof INCREMENT
 }
 
 export interface IncrementByAction {
-  type: "INCREMENT_BY"
+  type: typeof INCREMENT_BY
   by: number
 }
 

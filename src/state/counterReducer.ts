@@ -1,5 +1,16 @@
 import { Reducer } from "redux"
-import { CounterState, Action } from "../actions/types"
+import {
+  CounterState,
+  Action,
+  IncrementAction,
+  IncrementByAction,
+  DecrementAction,
+  DecrementByAction,
+  INCREMENT,
+  DECREMENT,
+  INCREMENT_BY,
+  DECREMENT_BY
+} from "../actions/types"
 
 export const initialState = {
   value: 1
@@ -31,5 +42,23 @@ const counterReducer: Reducer<CounterState, Action> = (state = initialState, act
       return state
   }
 }
+
+export const increment = (): IncrementAction => ({
+  type: INCREMENT,
+})
+
+export const incrementBy = (by: number): IncrementByAction => ({
+  type: INCREMENT_BY,
+  by,
+})
+
+export const decrement = (): DecrementAction => ({
+  type: DECREMENT,
+})
+
+export const decrementBy = (by: number): DecrementByAction => ({
+  type: DECREMENT_BY,
+  by,
+})
 
 export default counterReducer
