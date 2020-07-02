@@ -1,4 +1,4 @@
-import { State } from "../state/types"
+import { State } from "../state/types/counterReducer"
 
 const counterValue = (state: State) => state.counter.value
 

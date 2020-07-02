@@ -1,9 +1,7 @@
-import { combineReducers, Reducer } from "redux"
-import { Action } from "../actions/types"
-import { State } from "./types"
+import { combineReducers } from "@reduxjs/toolkit"
 import counterReducer from "./counterReducer"
 
-const reducer: Reducer<State, Action> = combineReducers({
+const reducer = combineReducers({
   counter: counterReducer
 })
 
