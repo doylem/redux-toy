@@ -1,5 +1,5 @@
-import { State } from "../state/types/counterReducer"
+import { RootState } from "../state/types/rootState"
 
-const counterValue = (state: State) => state.counter.value
+const counterValue = (state: RootState) => state.counter.value
 
 export default counterValue

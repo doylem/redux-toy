@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-expressions */
+import { Dispatch, RootState } from "./types/rootState"
 
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-import { Payload, Dispatch,State  } from "./types/counterReducer"
+import { Payload } from "./types/counterReducer"
 
 const slice = createSlice({
   name: 'counter',
@@ -30,7 +31,7 @@ function timeout(ms: number) {
 }
 
 export function countDown() {
-  return async (dispatch: Dispatch, getState: () => State) => {
+  return async (dispatch: Dispatch, getState: () => RootState) => {
     while (getState().counter.value > 0) {
       dispatch(decrement())
       await timeout(1000)

@@ -1,6 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Dispatch } from "../state/types/counterReducer"
+import { Dispatch } from "../state/types/rootState"
 import { increment, decrement, decrementBy, incrementBy, countDown } from "../state/counterReducer"
 import counterValue from "../selectors/counterValue"
 
